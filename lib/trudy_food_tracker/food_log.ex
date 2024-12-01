@@ -11,7 +11,8 @@ defmodule TrudyFoodTracker.FoodLog do
 
   def add_entry(food_type) do
     Agent.update(__MODULE__, fn entries ->
-      [%Entry{food_type: food_type, timestamp: DateTime.utc_now()} | entries]
+      {:ok, est_time} = DateTime.shift_zone(DateTime.utc_now(), "America/New_York")
+      [%Entry{food_type: food_type, timestamp: est_time} | entries]
     end)
   end
 

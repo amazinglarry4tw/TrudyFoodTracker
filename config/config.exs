@@ -32,6 +32,8 @@ config :trudy_food_tracker, TrudyFoodTrackerWeb.Endpoint,
     cd: Path.expand("../assets", __DIR__)
   ]
 
+config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
+
 # Configure esbuild
 config :esbuild,
   version: "0.17.11",
